@@ -62,14 +62,41 @@ body {
   margin: 0;
 }
 .doc{
-  display:flex;
-  flex-wrap: wrap;
-  gap: 25px;
+  display: grid;
+  grid-template-columns: repeat(3,max-content);
+  gap: 10px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+.doc::-webkit-scrollbar { 
+  opacity: 0;
 }
 .doc > img {
-  max-width: 100%;
+  max-width: 800px;
+  border-radius: 20px;
+  margin-top: 15px;
 }
-
+.tabs-w {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+}
+.tabs {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  gap: 5px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  z-index: 1;
+}
+.tabs::-webkit-mask-image{ background-color: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%); }
+.tabs::-webkit-mask-repeat { background: no-repeat; }
+.tabs::-webkit-mask-size{ background-size: 100% 100%; }
+.tabs::-webkit-scrollbar { 
+  opacity: 0; 
+  height: 0;
+}
 /*download*/
 .download {
   display: grid;
@@ -118,9 +145,7 @@ body {
     padding-left:10px;
     padding-right:10px;
     border-radius: 25px;
-    background-image: url(kanjipat.png);
-    background-size: auto 750px;
-    background-repeat: repeat;
+    background: linear-gradient(to bottom, #6d28d9, #430d9a);
   }
 
 /* buttons */
@@ -232,7 +257,7 @@ body::-webkit-scrollbar {
   height: 15px;
 }
 body::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.5);
+  background: #6d28d980;
   border-radius: 25px;
   width: 50%;
   height: 15px;
@@ -255,6 +280,9 @@ body::-webkit-scrollbar-thumb {
     display: grid;
     justify-content: center;
     grid-template-columns: auto;
+  }
+  .doc > img {
+    max-width: 400px;
   }
   .download {
     grid-template-columns: repeat(2,max-content);
@@ -335,7 +363,10 @@ body.light .home > a > button:hover {
 }
 
 body.light {
-  background-color: #a78bfa ;
+  background-color: #c0acff ;
+}
+body.light .title-box {
+  background: linear-gradient(to bottom, #a47dff, #914dff);
 }
 
 body.light .download > button, body.light .download > a > button {

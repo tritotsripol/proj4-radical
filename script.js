@@ -62,3 +62,38 @@ gotop.addEventListener('click',function() {
     behavior: 'smooth',
   });
 });
+
+//scroll hori
+const tabs = document.querySelector('.doc');
+
+tabs.addEventListener('wheel', (e) => {
+  if (e.target.closest('.filter')) return;
+
+  e.preventDefault(); 
+  tabs.scrollLeft += e.deltaY;
+});
+
+const tabsid = document.getElementById("doc");
+
+tabsid.addEventListener("scroll", updateMask);
+window.addEventListener("resize", updateMask); // รีเฟรช mask เมื่อหน้าจอเปลี่ยน
+
+function updateMask() {
+  const maxScroll = tabsid.scrollWidth - tabsid.clientWidth;
+  const scroll = tabsid.scrollLeft;
+
+  // ถ้าไม่ scrollable → เอา mask ออก
+  if (tabsid.scrollWidth <= tabsid.clientWidth) {
+    tabsid.style.webkitMaskImage = "none";
+    return;
+  }
+
+  // คำนวณจุด fade dynamic
+  const leftPercent = scroll === 0 ? 0 : 10;
+  const rightPercent = scroll >= maxScroll ? 0 : 10;
+
+  tabsid.style.webkitMaskImage = `linear-gradient(to right, transparent 0%, black ${leftPercent}%, black ${100 - rightPercent}%, transparent 100%)`;
+}
+
+// เรียกครั้งแรกตอนโหลด
+updateMask();
