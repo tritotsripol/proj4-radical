@@ -58,7 +58,7 @@ h1 {
   margin:25px;
 }
 body {
-  background-color: #2e1065 ;
+  background-color: #201b2c ;
   margin: 0;
 }
 .doc{
@@ -73,8 +73,8 @@ body {
 }
 .doc > img {
   max-width: 800px;
-  border-radius: 20px;
-  margin-top: 15px;
+  border-radius: 15px;
+  margin-top: 25px;
 }
 .tabs-w {
   position: relative;
@@ -114,7 +114,7 @@ body {
   width: max-content;
   font-size: 16px;
   font-family: Kanit;
-  transition: background 1s ease, box-shadow 1s ease;
+  transition: background 0.5s ease, box-shadow 0.5s ease;
   box-shadow: 0 0 5px #6d28d980;
 }
 .download > button:hover, .download > a > button:hover {
@@ -144,8 +144,9 @@ body {
     padding-bottom: 0.5em;
     padding-left:10px;
     padding-right:10px;
-    border-radius: 25px;
-    background: linear-gradient(to bottom, #6d28d9, #430d9a);
+    border-radius: 15px;
+    border: 1px solid #6d28d9;
+    background: linear-gradient(to bottom, #6d28d980, #6d28d920);
   }
 
 /* buttons */
@@ -257,7 +258,7 @@ body::-webkit-scrollbar {
   height: 15px;
 }
 body::-webkit-scrollbar-thumb {
-  background: #6d28d980;
+  background: #6d28d9;
   border-radius: 25px;
   width: 50%;
   height: 15px;
@@ -300,7 +301,7 @@ body.light::-webkit-scrollbar {
   background: rgba(255,255,255, 0.5);
 }
 body.light::-webkit-scrollbar-thumb {
-  background: #6d28d980;
+  background: #a47dff;
 }
 
 body.light .gotop, body.light .themebtn {
@@ -363,14 +364,16 @@ body.light .home > a > button:hover {
 }
 
 body.light {
-  background-color: #c0acff ;
+  background-color: #d8ccff ;
 }
 body.light .title-box {
-  background: linear-gradient(to bottom, #a47dff, #914dff);
+  border: 1px solid #a47dff;
+  background: linear-gradient(to bottom, #a47dff80, #a47dff20);
+  color: #2e1065;
 }
 
 body.light .download > button, body.light .download > a > button {
-  color: #5b21b6;
+  color: #2e1065;
   background: #ffffff80;
   border: 1px solid white;
   box-shadow: 0 0 5px #6d28d980;
