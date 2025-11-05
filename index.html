@@ -18,9 +18,9 @@
 </head>
 <body class="Kanit">
   <section class="header">
-    <div><img src="favicon.png" width="75px" height="75px" alt="favicon"></div>
+    <div class="semiicon"></div>
     <div><h1 style="font-size: 50px; line-height: 1em">Trithod Site</h1></div>
-    <div class="home"><a href="https://tritotsripol.github.io/trithodhome/"><button data-en="Home" data-th="หน้าหลัก"></button></a></div>
+    <div class="home"><a href="https://tritotsripol.github.io/trithodhome/"><button><div></div></button></a></div>
   </section>
 
   <section class="web">
@@ -30,9 +30,13 @@
     <section class="grid">
       <div class="download">
         <a href="kanji214radicals.pdf" download>
-          <button data-en="Download in PDF" data-th="ดาวน์โหลดเป็น PDF"></button>
+          <button>
+            <div class="downloadicon"></div><span data-en="Download in PDF" data-th="ดาวน์โหลดเป็น PDF"></span>
+          </button>
         </a>
-        <button onclick="downloadFiles()" data-en="Download in PNG" data-th="ดาวน์โหลดเป็น PNG"></button>
+        <button onclick="downloadFiles()">
+          <div class="downloadicon"></div><span data-en="Download in PNG" data-th="ดาวน์โหลดเป็น PNG"></span>
+        </button>
       </div>
       <div class="origin">
         <div><b><div data-en="Source: " data-th="แหล่งข้อมูล: "></div></b></div>
@@ -56,12 +60,18 @@
     <section class="grid">
       <div class="download">
         <a href="kanji214radicals.pdf" download>
-          <button data-en="Download in PDF" data-th="ดาวน์โหลดเป็น PDF"></button>
+          <button>
+            <div class="downloadicon"></div><span data-en="Download in PDF" data-th="ดาวน์โหลดเป็น PDF"></span>
+          </button>
         </a>
-        <button onclick="downloadFiles()" data-en="Download in PNG" data-th="ดาวน์โหลดเป็น PNG"></button>
+        <button onclick="downloadFiles()">
+          <div class="downloadicon"></div><span data-en="Download in PNG" data-th="ดาวน์โหลดเป็น PNG"></span>
+        </button>
       </div>
       <div class="origin">
-        <div><b><div data-en="Source: " data-th="แหล่งข้อมูล: "></div></b></div>
+        <div>
+          <b><div data-en="Source: " data-th="แหล่งข้อมูล: "></div></b>
+        </div>
         <a href="https://kanjialive.com/214-traditional-kanji-radicals/">
           https://kanjialive.com/214-traditional-kanji-radicals/
         </a><br>

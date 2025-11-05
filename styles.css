@@ -3,6 +3,12 @@ h1 {
   margin-top: 25px;
   margin-bottom:25px;
 }
+body {
+  background: radial-gradient(circle at center, #6d28d980 0%, transparent 75%), #110f16 ;
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+}
 .header {
   display:flex;
   flex-wrap: nowrap;
@@ -13,6 +19,7 @@ h1 {
   justify-content: start;
   align-items: center;
   gap: 2.5em;
+  border-radius: 0 0 25px 25px;
 }
 .home {
   flex-grow: 1;
@@ -25,20 +32,72 @@ h1 {
   transition: font-weight 0.5s ease, font-size 0.5s ease;
 }
 .home > a > button {
+  position: relative;
+  width: 75px !important;
+  height: 75px;
   cursor: pointer;
   color: white;
   background: #00000080;
   border-radius: 15px;
-  border: 1px solid black;
+  border: none;
   width: 5em;
   font-size: 20px;
   font-family: Kanit;
-  transition: background 1s ease, box-shadow 1s ease;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  transition: background 0.5s ease, box-shadow 0.5s ease;
 }
 .home > a > button:hover {
   background: black;
-  box-shadow: 0 0 5px rgba(0,0,0, 1);
+}
+.home > a > button > img {
+  opacity: 50%;
+  transition: opacity 0.5s ease;
+}
+.home > a > button:hover > img {
+  opacity: 100%;
+}
+.home > a > button > div {
+  opacity: 0.5;
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 50px;
+  height: 50px;
+  mask-image: url('home-icon.png');
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+  background-color: white;
+  transition: opacity 0.5s ease; 
+}
+.home > a > button:hover > div {
+  opacity: 1;
+}
+.semiicon {
+  width: 75px;
+  height: 75px;
+  mask-image: url('semi-icon.png');
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+  background-color: white;
+}
+.downloadicon {
+  width: 25px;
+  height: 25px;
+  mask-image: url('download-icon.png');
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+  background-color: white;
+}
+.sourceicon {
+  width: 25px;
+  height: 25px;
+  mask-image: url('source-icon.png');
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+  background-color: white;
 }
 .footer {
   background: #00000080;
@@ -53,13 +112,10 @@ h1 {
   box-sizing: border-box;
   margin-top:auto;
   z-index: -1;
+  border-radius: 25px 25px 0 0;
 }
 .web {
   margin:25px;
-}
-body {
-  background-color: #201b2c ;
-  margin: 0;
 }
 .doc{
   display: grid;
@@ -105,21 +161,26 @@ body {
   justify-content: start;
   align-content: center;
 }
+.download > a {
+  text-decoration: none;
+}
 .download > button, .download > a > button {
+  padding: 10px;
   cursor: pointer;
   color: white;
   background: #00000080;
-  border-radius: 10px;
-  border: 1px solid black;
+  border-radius: 15px;
   width: max-content;
+  border:none;
   font-size: 16px;
   font-family: Kanit;
+  display: grid;
+  grid-template-columns: repeat(2,auto);
+  gap: 10px;
   transition: background 0.5s ease, box-shadow 0.5s ease;
-  box-shadow: 0 0 5px #6d28d980;
 }
 .download > button:hover, .download > a > button:hover {
   background: black;
-  box-shadow: 0 0 5px rgba(0,0,0, 1);
 }
 .origin {
   text-align: end;
@@ -135,6 +196,7 @@ body {
   display: grid;
   grid-template-columns: repeat(2,auto);
   margin: 1em 0 1em 0;
+  gap: 1em;
 }
 
 .title-box {
@@ -145,16 +207,15 @@ body {
     padding-left:10px;
     padding-right:10px;
     border-radius: 15px;
-    border: 1px solid #6d28d9;
-    background: linear-gradient(to bottom, #6d28d980, #6d28d920);
+    background: #6d28d980;
   }
 
 /* buttons */
 .buttons {
   display: flex;
   flex-wrap: nowrap;
-  gap: 5px;
   position: fixed;
+  gap: 0px;
   inset: auto 15px 15px auto;
 }
 /* buttons */
@@ -165,22 +226,20 @@ body {
   height: 3em;
   background-color: rgba(0,0,0,0.5);
   backdrop-filter: blur(5px);
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
-  border: solid 1px black;
-  box-shadow:0 0 5px #6d28d980;
-  transition: background-color 1s ease, box-shadow 1s ease;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border: none;
+  transition: background-color 0.5s ease, box-shadow 0.5s ease;
 }
 .gotop:hover {
   background-color: black;
-  box-shadow: 0 0 5px rgba(0,0,0, 1);
 }
 .uppy {
   filter: invert(1);
   opacity: 0.5;
 }
 .gotop:hover .uppy {
-  transition: opacity 1s ease;  
+  transition: opacity 0.5s ease;  
   opacity: 1;
 }
 /* gotop button */
@@ -191,15 +250,13 @@ body {
   height: 3em ;
   background-color: rgba(0,0,0,0.5);
   backdrop-filter: blur(5px);
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
-  border: solid 1px black;
-  box-shadow:0 0 5px #6d28d980;
-  transition: background-color 1s ease, color 1s ease, box-shadow 1s ease;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border: none;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 .sectionbtn:hover {
   background-color: black;
-  box-shadow: 0 0 5px rgba(0,0,0,1);
 }
 .sectionbtn:focus {
   outline: none;
@@ -223,7 +280,7 @@ select.sectionbtn div {
 select.sectionbtn option {
   color: white;
   font-family: 'Kanit', sans-serif;
-  background-color:#1f1f1f;
+  background-color:black;
 }
 /* sectionbtn */
 
@@ -233,13 +290,11 @@ select.sectionbtn option {
   height: 3em ;
   background-color: rgba(0,0,0,0.5);
   backdrop-filter: blur(5px);
-  border: solid 1px black;
-  box-shadow:0 0 5px #6d28d980;
-  transition: background-color 1s ease, color 1s ease, box-shadow 1s ease;
+  border: none;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 .themebtn:hover {
   background-color: black;
-  box-shadow: 0 0 5px rgba(0,0,0,1);
 }
 .themeicon {
   filter: invert(1);
@@ -252,8 +307,7 @@ select.sectionbtn option {
 /* themebtn */
 
 body::-webkit-scrollbar {
-  background: rgba(0,0,0, 0.5);
-  border-radius: 25px;
+  background: #110f16;
   width: 15px;
   height: 15px;
 }
@@ -298,7 +352,7 @@ body::-webkit-scrollbar-thumb {
 /*lightth*/
 
 body.light::-webkit-scrollbar {
-  background: rgba(255,255,255, 0.5);
+  background: #decfff ;
 }
 body.light::-webkit-scrollbar-thumb {
   background: #a47dff;
@@ -306,13 +360,10 @@ body.light::-webkit-scrollbar-thumb {
 
 body.light .gotop, body.light .themebtn {
   background-color: rgba(255,255,255,0.5);
-  border: solid 1px white;
-  box-shadow:0 0 5px #8b5cf680;
-  transition: background-color 1s ease, box-shadow 1s ease;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 body.light .gotop:hover, body.light .themebtn:hover {
   background-color: white;
-  box-shadow: 0 0 5px rgba(255,255,255, 1);
 }
 body.light .uppy, body.light .themeicon {
   filter: invert(0);
@@ -320,67 +371,67 @@ body.light .uppy, body.light .themeicon {
 }
 body.light .sectionbtn {
   background-color: rgba(255,255,255,0.5);
-  border: solid 1px white;
-  box-shadow:0 0 5px #8b5cf680;
-  transition: background-color 1s ease, color 1s ease, box-shadow 1s ease;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 body.light .sectionbtn:hover {
   background-color: white;
-  box-shadow: 0 0 5px rgba(255,255,255,1);
 }
 body.light select.sectionbtn {
   color: rgba(0,0,0,0.5);
 }
 body.light select.sectionbtn:hover {
-  color: black;
+  color: #2e1065;
 }
 body.light select.sectionbtn div {
-  color: black;
+  color: #2e1065;
 }
 body.light select.sectionbtn option {
-  color: black;
+  color: #2e1065;
   background-color:white;
 }
 
 body.light .header, body.light .footer {
   background: #ffffff80;
-  color: #13364e;
+  color: #2e1065;
 }
 body.light .home>a {
-  color: #13364e;
+  color: #2e1065;
 }
 body.light .home > a{
-  color: #13364e;
+  color: #2e1065;
 }
 body.light .home > a > button {
-  color: #13364e;
+  color: #2e1065;
   background: #ffffff80;
-  border: 1px solid white;
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 body.light .home > a > button:hover {
   background: white;
-  box-shadow: 0 0 5px rgba(255,255,255, 1);
+}
+body.light .home > a > button > div{
+  background-color: #2e1065;
+}
+body.light .semiicon {
+  background-color: #2e1065;
 }
 
 body.light {
-  background-color: #d8ccff ;
+  background: radial-gradient(circle at center, #a47dff80 0%, transparent 75%), #decfff ;
+
 }
 body.light .title-box {
-  border: 1px solid #a47dff;
-  background: linear-gradient(to bottom, #a47dff80, #a47dff20);
+  background: #ffffffa0;
   color: #2e1065;
 }
 
 body.light .download > button, body.light .download > a > button {
   color: #2e1065;
-  background: #ffffff80;
-  border: 1px solid white;
-  box-shadow: 0 0 5px #6d28d980;
+  background: #ffffffa0;
+}
+body.light .downloadicon {
+  background-color: #2e1065;
 }
 body.light .download > button:hover, body.light .download > a > button:hover {
   background: white;
-  box-shadow: 0 0 5px #ffffff;
 }
 body.light .origin > div, body.light .origin > a {
   color: #2e1065;
